@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_management/pages/homescreen/home_screen.dart';
+import 'package:student_management/pages/listscreen/student_list_screen.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
@@ -13,7 +14,7 @@ class _BottomNavState extends State<BottomNav> {
 
   List pages = [
    const ScreenHome(),
-  //  ListStudentScreen()
+   ListStudentScreen()
   ];
   @override
   Widget build(BuildContext context) {

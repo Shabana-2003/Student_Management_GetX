@@ -56,9 +56,9 @@ TextStyle studentDetailsStyle = GoogleFonts.poppins(
 
 //Button Text style
 TextStyle butttonTextStyle = GoogleFonts.poppins(
-  fontSize: 18,
-  color:  const Color.fromARGB(255, 255, 255, 255),
-  fontWeight: FontWeight.w500
+  fontSize: 20,
+  color:  Color.fromARGB(255, 105, 105, 105),
+  fontWeight: FontWeight.w400
 );
 
 //Studentlist Title text style

@@ -10,7 +10,7 @@ class ScreenHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 110, 209, 248),
+        backgroundColor: Color.fromARGB(255, 95, 202, 244),
         title: Text(
           'Student Details',
           style: appBarStyle,
@@ -18,19 +18,58 @@ class ScreenHome extends StatelessWidget {
         centerTitle: true,
       ),
       body: SafeArea(
-        child: Center(
-          child: ElevatedButton.icon(
-            icon: const Icon(Icons.add),
-            onPressed: (() {
-              Get.to(
-                () => const TextForm(),
-              );
-            }),
-            label: Text(
-              'Add Student',
-              style: butttonTextStyle,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+             SizedBox(
+              height: 120,
             ),
-          ),
+            Image.asset('lib/constants/image/studentimage.png'),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              // child: ElevatedButton.icon(
+              //   icon: const Icon(Icons.add),
+              //   onPressed: (() {
+              //     Get.to(
+              //       () => const TextForm(),
+              //     );
+              //   }),
+              //   label: Text(
+              //     'Add Student',
+              //     style: butttonTextStyle,
+              //   ),
+              // ),
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.add),
+                onPressed: () {
+                  Get.to(() => const TextForm());
+                },
+                label: Text(
+                  'Add Student',
+                  style: butttonTextStyle,
+                ),
+                style: ElevatedButton.styleFrom(
+                  // Change size
+                  minimumSize:
+                      Size(250, 100), // You can adjust these values accordingly
+
+                  // Change border radius
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(50), // You can adjust this value
+                  ),
+
+                  // Change background color
+                  primary: Color.fromARGB(255, 95, 202, 244) // You can replace 'Colors.blue' with any color you want
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            )
+          ],
         ),
       ),
     );

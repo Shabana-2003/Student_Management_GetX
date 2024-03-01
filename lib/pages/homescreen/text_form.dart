@@ -6,6 +6,7 @@ import 'package:student_management/controller/student_controller.dart';
 import 'package:student_management/db/student_db.dart';
 import 'package:student_management/main.dart';
 import 'package:student_management/pages/bottom_nav.dart';
+import 'package:student_management/pages/homescreen/widgets/bottom_sheet.dart';
 import 'package:student_management/pages/homescreen/widgets/text_form_widget.dart';
 
 final TextEditingController namController = TextEditingController();
@@ -45,7 +46,9 @@ class TextForm extends StatelessWidget {
                         clipBehavior: Clip.none,
                         fit: StackFit.expand,
                         children: [
+                          SizedBox(height: 20,),
                           CircleAvatar(
+                             backgroundColor: Color.fromARGB(255, 95, 202, 244) ,
                             backgroundImage: data.pickedImageFromGallery != null
                                 ? FileImage(
                                     File(
@@ -61,13 +64,13 @@ class TextForm extends StatelessWidget {
                             right: -5,
                             child: MaterialButton(
                               onPressed: () {
-                                // Get.bottomSheet(
-                                //  // const PhotoBottomSheet(),
-                                //   backgroundColor:Color.fromARGB(255, 95, 217, 248),
-                                //   shape: RoundedRectangleBorder(
-                                //     borderRadius: BorderRadius.circular(10),
-                                //   ),
-                                // );
+                                Get.bottomSheet(
+                                  const PhotoBottomSheet(),
+                                  backgroundColor:Color.fromARGB(255, 95, 217, 248),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                );
                               },
                               child: const Icon(
                                 Icons.add_a_photo,
@@ -105,16 +108,39 @@ class TextForm extends StatelessWidget {
                       controller: numberController,
                       keyboardType: TextInputType.number,
                     ),
-                    SizedBox(height: 24,),
+                    SizedBox(height: 60,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        // ElevatedButton(
+                        //   onPressed: () {
+                        //     submitButtonClicked();
+                        //   },
+                        //   child: const Text('Submit'),
+                        // ),
                         ElevatedButton(
-                          onPressed: () {
-                            submitButtonClicked();
-                          },
-                          child: const Text('Submit'),
-                        ),
+                onPressed: () {
+                    submitButtonClicked();
+                },
+                child:const Text(
+                  'Submit',
+                  style: TextStyle(color: Color.fromARGB(255, 81, 81, 81)),
+                ),
+                style: ElevatedButton.styleFrom(
+                  // Change size
+                  minimumSize:
+                      Size(150, 70), // You can adjust these values accordingly
+
+                  // Change border radius
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(50), // You can adjust this value
+                  ),
+
+                  // Change background color
+                  primary: Color.fromARGB(255, 95, 202, 244) // You can replace 'Colors.blue' with any color you want
+                ),
+              ),
                       ],
                     )
                   ],
