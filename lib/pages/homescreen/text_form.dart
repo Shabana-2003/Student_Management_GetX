@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:student_management/constants/core/constrains.dart';
 import 'package:student_management/constants/style/style.dart';
 import 'package:student_management/controller/student_controller.dart';
 import 'package:student_management/db/student_db.dart';
@@ -23,16 +24,18 @@ class TextForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 110, 209, 248),
+        backgroundColor: backgroundcolor,
         title: Text(
-          'Add student details',
+          'Add details',
           style: appBarStyle,
         ),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: SingleChildScrollView(
           child: GetBuilder<StudentController>(
+            // used GetBuilder
             init: StudentController(),
             builder: (StudentController data) {
               return SizedBox(
@@ -46,9 +49,9 @@ class TextForm extends StatelessWidget {
                         clipBehavior: Clip.none,
                         fit: StackFit.expand,
                         children: [
-                          SizedBox(height: 20,),
+                          kheight20,
                           CircleAvatar(
-                             backgroundColor: Color.fromARGB(255, 95, 202, 244) ,
+                            backgroundColor: backgroundcolor,
                             backgroundImage: data.pickedImageFromGallery != null
                                 ? FileImage(
                                     File(
@@ -65,8 +68,8 @@ class TextForm extends StatelessWidget {
                             child: MaterialButton(
                               onPressed: () {
                                 Get.bottomSheet(
-                                  const PhotoBottomSheet(),
-                                  backgroundColor:Color.fromARGB(255, 95, 217, 248),
+                                  const PhotoBottomSheet(), // camera or gallary
+                                  backgroundColor: backgroundcolor,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10),
                                   ),
@@ -74,7 +77,7 @@ class TextForm extends StatelessWidget {
                               },
                               child: const Icon(
                                 Icons.add_a_photo,
-                                color: Color.fromARGB(255, 0, 0, 0),
+                                color: iconcolor,
                                 size: 30,
                               ),
                             ),
@@ -82,65 +85,52 @@ class TextForm extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 24,),
+                    kheight24,
                     TextFormWidget(
                       prefixIcon: Icons.person,
                       hintText: 'Enter your name',
                       controller: namController,
                     ),
-                     SizedBox(height: 24,),
+                    kheight24,
                     TextFormWidget(
                       prefixIcon: Icons.numbers,
                       hintText: 'Enter your age',
                       controller: ageController,
                       keyboardType: TextInputType.number,
                     ),
-                   SizedBox(height: 24,),
+                    kheight24,
                     TextFormWidget(
                       prefixIcon: Icons.developer_mode,
                       hintText: 'Enter your domain',
                       controller: domainController,
                     ),
-                   SizedBox(height: 24,),
+                    kheight24,
                     TextFormWidget(
                       prefixIcon: Icons.phone_android_outlined,
                       hintText: 'Enter your phone number',
                       controller: numberController,
                       keyboardType: TextInputType.number,
                     ),
-                    SizedBox(height: 60,),
+                    kheight24,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // ElevatedButton(
-                        //   onPressed: () {
-                        //     submitButtonClicked();
-                        //   },
-                        //   child: const Text('Submit'),
-                        // ),
                         ElevatedButton(
-                onPressed: () {
-                    submitButtonClicked();
-                },
-                child:const Text(
-                  'Submit',
-                  style: TextStyle(color: Color.fromARGB(255, 81, 81, 81)),
-                ),
-                style: ElevatedButton.styleFrom(
-                  // Change size
-                  minimumSize:
-                      Size(150, 70), // You can adjust these values accordingly
-
-                  // Change border radius
-                  shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(50), // You can adjust this value
-                  ),
-
-                  // Change background color
-                  primary: Color.fromARGB(255, 95, 202, 244) // You can replace 'Colors.blue' with any color you want
-                ),
-              ),
+                          onPressed: () {
+                            submitButtonClicked();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size(150, 70),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            backgroundColor: backgroundcolor,
+                          ),
+                          child: const Text(
+                            'Submit',
+                            style: TextStyle(color: textcolor),
+                          ),
+                        ),
                       ],
                     )
                   ],
@@ -152,6 +142,8 @@ class TextForm extends StatelessWidget {
       ),
     );
   }
+
+
 
   Future<void> submitButtonClicked() async {
     final image = studentController.pickedImageFromGallery;
@@ -176,8 +168,8 @@ class TextForm extends StatelessWidget {
             ),
           ),
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Color.fromARGB(255, 255, 7, 7),
-          colorText: Colors.white,
+          backgroundColor: warningcolor,
+          colorText: warningtextcolor,
           maxWidth: double.infinity,
           margin: const EdgeInsets.all(10));
     } else {
@@ -189,7 +181,7 @@ class TextForm extends StatelessWidget {
         number: number,
       );
 
-      Get.offAll(() => const BottomNav());
+      Get.offAll(() => BottomNav());
       Get.snackbar('title', 'message',
           duration: const Duration(seconds: 1),
           titleText: Center(
@@ -206,7 +198,7 @@ class TextForm extends StatelessWidget {
           ),
           snackPosition: SnackPosition.BOTTOM,
           maxWidth: double.infinity,
-          backgroundColor: Colors.green,
+          backgroundColor: successcolor,
           margin: const EdgeInsets.all(10));
       studentController.pickedImageFromGallery = null;
       namController.clear();

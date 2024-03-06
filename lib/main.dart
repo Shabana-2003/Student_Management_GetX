@@ -11,6 +11,10 @@ final StudentController studentController = Get.put(StudentController());// stud
 //Get.put(): This is a method provided by the Get package. It's like a magic wand that creates an instance of the specified class. By passing StudentController() inside Get.put(), we're telling Get 
 //to create an instance of StudentController and put it into a special storage space that Get manages.
 
+// 1. It creates an instance of the StudentController class.
+// 2. It registers this instance with GetX's dependency injection system, allowing other parts of your application to access it.
+
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();  // Ensure that Flutter widgets are initialized
@@ -28,7 +32,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Student management',
       debugShowCheckedModeBanner: false,
-      home: const BottomNav(),
+      home:  BottomNav(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

@@ -11,14 +11,14 @@ class Student extends HiveObject {
       required this.domain,
       required this.number});
 
-  @HiveField(0)
+  @HiveField(0)//This property represents the unique identifier of the student. It's annotated with @HiveField(0) to indicate that it should be stored in the Hive database with index 0.
   int? id;
 
   @HiveField(1)
   final String image;
 
   @HiveField(2)
-  final String name;
+  final String name;//represents the name of the student.
 
   @HiveField(3)
   final String age;

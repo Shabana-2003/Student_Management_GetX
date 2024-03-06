@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:student_management/db/student_db.dart';
@@ -11,6 +12,13 @@ class StudentController extends GetxController {
     update();
     super.onReady();
   }
+
+   var currentSelectedIndex = 0.obs;//for bottom navigation bar
+
+  void changePage(int newIndex) {
+    currentSelectedIndex.value = newIndex;
+  }
+
 
   String? pickedImage;
   String? pickedImageFromGallery;
@@ -57,4 +65,5 @@ class StudentController extends GetxController {
     list.insert(index, edit);
     update();
   }
+
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:student_management/constants/core/constrains.dart';
 import 'package:student_management/constants/style/style.dart';
 import 'package:student_management/pages/homescreen/text_form.dart';
 
@@ -21,26 +22,10 @@ class ScreenHome extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-             SizedBox(
-              height: 120,
-            ),
+            kheight120,
             Image.asset('lib/constants/image/studentimage.png'),
-            SizedBox(
-              height: 20,
-            ),
+            kheight20,
             Center(
-              // child: ElevatedButton.icon(
-              //   icon: const Icon(Icons.add),
-              //   onPressed: (() {
-              //     Get.to(
-              //       () => const TextForm(),
-              //     );
-              //   }),
-              //   label: Text(
-              //     'Add Student',
-              //     style: butttonTextStyle,
-              //   ),
-              // ),
               child: ElevatedButton.icon(
                 icon: const Icon(Icons.add),
                 onPressed: () {
@@ -51,24 +36,23 @@ class ScreenHome extends StatelessWidget {
                   style: butttonTextStyle,
                 ),
                 style: ElevatedButton.styleFrom(
-                  // Change size
-                  minimumSize:
-                      Size(250, 100), // You can adjust these values accordingly
+                    // Change size
+                    minimumSize: const Size(
+                        250, 100), // You can adjust these values accordingly
 
-                  // Change border radius
-                  shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(50), // You can adjust this value
-                  ),
+                    // Change border radius
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          50), // You can adjust this value
+                    ),
 
-                  // Change background color
-                  primary: Color.fromARGB(255, 95, 202, 244) // You can replace 'Colors.blue' with any color you want
-                ),
+                    // Change background color
+                    primary: Color.fromARGB(255, 95, 202,
+                        244) // You can replace 'Colors.blue' with any color you want
+                    ),
               ),
             ),
-            SizedBox(
-              height: 5,
-            )
+            kheight5
           ],
         ),
       ),
