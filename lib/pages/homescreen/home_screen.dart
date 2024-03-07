@@ -11,7 +11,7 @@ class ScreenHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 95, 202, 244),
+        backgroundColor:backgroundcolor,
         title: Text(
           'Student Details',
           style: appBarStyle,
@@ -36,19 +36,13 @@ class ScreenHome extends StatelessWidget {
                   style: butttonTextStyle,
                 ),
                 style: ElevatedButton.styleFrom(
-                    // Change size
                     minimumSize: const Size(
-                        250, 100), // You can adjust these values accordingly
-
-                    // Change border radius
+                        250, 100),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
-                          50), // You can adjust this value
+                          50),
                     ),
-
-                    // Change background color
-                    primary: Color.fromARGB(255, 95, 202,
-                        244) // You can replace 'Colors.blue' with any color you want
+                   backgroundColor:backgroundcolor,
                     ),
               ),
             ),

@@ -1,7 +1,9 @@
+// student details screen
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:student_management/constants/core/constrains.dart';
 import 'package:student_management/constants/style/style.dart';
 import 'package:student_management/controller/student_controller.dart';
 import 'package:student_management/db/student_db.dart';
@@ -20,7 +22,7 @@ class ScreenStudentDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:Colors.blue,
+        backgroundColor:backgroundcolor,
         centerTitle: true,
         title: Text(
           dataList.name,
@@ -43,25 +45,25 @@ class ScreenStudentDetails extends StatelessWidget {
                       ),radius: 80,
                     ),
                   ),
-                  SizedBox(height: 25,),
+                  kheight25,
                   DetailsWidget(
                     studentDetails:
                         'Name${'     : ${dataList.name}'.toUpperCase()}',
                   ),
-                  SizedBox(height: 25,),
+                  kheight25,
                   DetailsWidget(
                     studentDetails: 'Age         : ${dataList.age}',
                   ),
-                SizedBox(height: 25,),
+                kheight25,
                   DetailsWidget(
                     studentDetails:
                         'Domain${'  : ${data.list[index].domain}'.toUpperCase()}',
                   ),
-                SizedBox(height: 25,),
+                kheight25,
                   DetailsWidget(
                     studentDetails: 'Number  : ${dataList.number}',
                   ),
-                  SizedBox(height: 25,)
+                  kheight25
                 ],
               ),
             ),

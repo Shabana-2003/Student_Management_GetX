@@ -16,6 +16,14 @@ const kheight24 = SizedBox(
   height: 24,
 );
 
+const kheight25 = SizedBox(
+  height: 25,
+);
+
+const kheight6 = SizedBox(
+  height: 6,
+);
+
 const backgroundcolor =  Color.fromARGB(255, 110, 209, 248);
 const textcolor = Color.fromARGB(255, 81, 81, 81);
 const warningcolor = Color.fromARGB(255, 255, 7, 7);

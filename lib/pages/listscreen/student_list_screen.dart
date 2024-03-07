@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart'; // used getx
+import 'package:student_management/constants/core/constrains.dart';
 import 'package:student_management/constants/style/style.dart';
 import 'package:student_management/controller/student_controller.dart';
 import 'package:student_management/pages/listscreen/search.dart';
@@ -20,14 +21,14 @@ class ListStudentScreen extends StatelessWidget {
           'Student List',
           style: appBarStyle,
         ),
-        backgroundColor:  Color.fromARGB(255, 95, 202, 244),
+        backgroundColor: backgroundcolor,
         centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {
               showSearch(
                 context: context,
-                delegate: Search(),
+                delegate: Search(),// its a class
               );
             },
             icon: const Icon(
@@ -35,7 +36,7 @@ class ListStudentScreen extends StatelessWidget {
               size: 30,
             ),
           ),
-          SizedBox(height: 10,)
+          kheight5,kheight5
         ],
       ),
       body: Padding(
@@ -95,7 +96,7 @@ class ListStudentScreen extends StatelessWidget {
                                       title: 'Delete',
                                       middleText: 'Do you want to delete',
                                       textConfirm: 'Ok',
-                                      confirmTextColor: Colors.white,
+                                      confirmTextColor: warningtextcolor,
                                       onConfirm: () {
                                         studentObject.deleteStudent(
                                           studentObject.list[index].id,
@@ -123,7 +124,7 @@ class ListStudentScreen extends StatelessWidget {
                                           margin: const EdgeInsets.only(
                                             bottom: 5,
                                           ),
-                                          backgroundColor: Colors.green,
+                                          backgroundColor: successcolor,
                                         );
                                       },
                                       textCancel: 'Cancel',
@@ -141,7 +142,7 @@ class ListStudentScreen extends StatelessWidget {
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
-                      return SizedBox(height: 6,);
+                      return kheight6;
                     },
                     itemCount: studentObject.list.length,
                   )

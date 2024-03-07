@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:student_management/constants/core/constrains.dart';
 import 'package:student_management/constants/style/style.dart';
 import 'package:student_management/controller/student_controller.dart';
 import 'package:student_management/db/student_db.dart';
@@ -51,7 +52,7 @@ class Search extends SearchDelegate {
             )
           : Column(
               children: [
-                SizedBox(height: 25,),
+                kheight25,
                 ListView.separated(
                   itemBuilder: (BuildContext context, int index) {
                     return Container(

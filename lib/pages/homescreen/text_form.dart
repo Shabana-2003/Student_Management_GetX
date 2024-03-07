@@ -55,7 +55,7 @@ class TextForm extends StatelessWidget {
                             backgroundImage: data.pickedImageFromGallery != null
                                 ? FileImage(
                                     File(
-                                      data.pickedImageFromGallery!,
+                                      data.pickedImageFromGallery!,//it have a getx controller function
                                     ),
                                   ) as ImageProvider
                                 : const AssetImage(
@@ -146,7 +146,7 @@ class TextForm extends StatelessWidget {
 
 
   Future<void> submitButtonClicked() async {
-    final image = studentController.pickedImageFromGallery;
+    final image = studentController.pickedImageFromGallery;// pickedImageFromGallery is a controller class variable
     final name = namController.text.trim();
     final age = ageController.text.trim();
     final domain = domainController.text.trim();
